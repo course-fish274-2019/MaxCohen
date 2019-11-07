@@ -1,6 +1,5 @@
 #Exercise 1 - Set up Git - Done
-
-fish_data = read.csv("Gaeta_etal_CLC_data_1.csv")
+fish_data <-  read.csv("data/Gaeta_etal_CLC_data_1.csv")
 library(dplyr)
 fish_data_cat = fish_data %>%
   mutate(length_cat = ifelse(length > 200, "big", "small"))
@@ -22,8 +21,9 @@ ggplot(data = fish_data) +
   labs(x = "length [mm]", y = "scale length [mm]", title = "length vs. scale length") 
 
 #Exercise 6 - Pulling and Pushing
-
-
+ggplot(fish_data_cat, aes(x = scalelength, fill = length_cat)) +
+  geom_histogram(bins = 80)
+ggsave("figures/fish_data_cat.jpg")
 
 
 
